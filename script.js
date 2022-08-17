@@ -32,7 +32,20 @@ populateGrid(256);
 const newGridBtn = document.getElementById('newGridBtn');
 
 newGridBtn.addEventListener('click', function() {
-  let sqrNum = prompt('Enter squares per side:')
+  
+  let sqrNum = 0;
+  
+  do{
+    sqrNum = prompt('Enter squares per side:')
+
+    if(sqrNum > 100){
+      alert('cant enter number bigger than 100')
+    }
+  } while(sqrNum > 100);
+  
+  
+  
+  
   let returnVal = sqrNum * sqrNum;
   let widthHeight = (100 / sqrNum);
   populateGrid(returnVal, widthHeight);
