@@ -25,7 +25,15 @@ h1 {
 }
 
 #newGridBtn {
-  background-color: blue;
+  background-color: #ffb703;
+  color: #023047;
+  border-radius: 15px;
+
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 
