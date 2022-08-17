@@ -1,31 +1,12 @@
 const container = document.getElementById('container')
 
-
-function populateGrid(sqrCount, sqrWidth) {
-
-  const oldSquares = document.querySelectorAll('.griddy')
-  oldSquares.forEach(element => {
-    element.remove();
+const resetBtn = document.getElementById('resetBtn')
+resetBtn.addEventListener('click', () => {
+  const allDivs = document.querySelectorAll('.griddy');
+  allDivs.forEach(sqrDiv => {
+    sqrDiv.style.backgroundColor = 'rgb(255, 255, 255)'
   })
-
-  for (i = 0; i < sqrCount; i++) {
-    const div = document.createElement('div');
-    div.classList.add('griddy')
-    div.style.width = `${sqrWidth}%`
-    div.style.height = `${sqrWidth}%`
-    div.style.backgroundColor = 'rgb(255, 255, 255)';
-
-    div.addEventListener('mouseover', () => {
-      let currentBg = div.style.backgroundColor
-      let lightVal = currentBg.slice(4, 7);
-      let newVal = lightVal - 50;
-      div.style.backgroundColor = `rgb(${newVal}, ${newVal}, ${newVal})`
-    })
-
-    container.appendChild(div);
-  }
-
-}
+})
 
 populateGrid(256);
 
@@ -45,3 +26,30 @@ newGridBtn.addEventListener('click', function () {
   let widthHeight = (100 / sqrNum);
   populateGrid(returnVal, widthHeight);
 })
+
+
+function populateGrid(sqrCount, sqrWidth) {
+
+  const oldSquares = document.querySelectorAll('.griddy')
+  oldSquares.forEach(element => {
+    element.remove();
+  })
+
+  for (i = 0; i < sqrCount; i++) {
+    const sqr = document.createElement('div');
+    sqr.classList.add('griddy')
+    sqr.style.width = `${sqrWidth}%`
+    sqr.style.height = `${sqrWidth}%`
+    sqr.style.backgroundColor = 'rgb(255, 255, 255)';
+
+    sqr.addEventListener('mouseover', () => {
+      let currentBg = sqr.style.backgroundColor
+      let lightVal = currentBg.slice(4, 7);
+      let newVal = lightVal - 50;
+      sqr.style.backgroundColor = `rgb(${newVal}, ${newVal}, ${newVal})`
+    })
+
+    container.appendChild(sqr);
+  }
+}
+
